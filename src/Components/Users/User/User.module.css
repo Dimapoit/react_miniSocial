@@ -1,0 +1,32 @@
+.userItem {
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    margin: 10px;
+}
+
+.user {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.btn {
+    margin: 10px auto;
+    margin-left: 25px;
+
+}
+
+.userInfo {
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    border: 2px solid #cccccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.selectedPage {
+    font-weight: bold;
+    color: red;
+}
+.users {
+
+}
