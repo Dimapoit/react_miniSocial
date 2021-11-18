@@ -3,19 +3,20 @@ import style from './User/User.module.css'
 import userPhoto from '../../assets/images/user.png'
 import Preloader from "../Common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import Paginator from "../Paginator/Paginator";
 
 const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
+    // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    // let pages = [];
+    // for (let i = 1; i <= pagesCount; i++) {
+    //     pages.push(i)
+    // }
     return (
         <div>
             {
                 props.isFetching ? <Preloader/> : null
             }
-            <div>
+            {/* <div>
                 {
                     pages.map(p => <span
                         onClick={() => {
@@ -23,7 +24,13 @@ const Users = (props) => {
                         }}
                         className={props.currentPage === p ? style.selectedPage : ''}>{p}</span>)
                 }
-            </div>
+            </div> */}
+            <Paginator totalUsersCount={props.totalUsersCount}
+                       pageSize={props.pageSize}
+                       currentPage={props.currentPage}
+                       onPageChanged={props.onPageChanged}
+                       portionSize={10}
+             />
             {
                 props.users.map(u => {
                     return (

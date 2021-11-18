@@ -8,9 +8,7 @@ import {
    // setTotalUsersCount,
    // toggleIsFetching,
    // toggleFollowingProgress,
-    requestUsers
-
-} from "../../Redux/users-reducer";
+    requestUsers} from "../../Redux/users-reducer";
 import React from "react";
 import {
     getCurrentPage,
@@ -19,10 +17,7 @@ import {
     getPageSize,
     getTotalUsersCount,
     //getUsers,
-    getUsersReselect
-} from "../../Redux/users-selectors";
-
-//import {requestUsers} from "../../api/api";
+    getUsersReselect} from "../../Redux/users-selectors";
 
 class UsersContainer extends React.Component {
     // constructor(props) {

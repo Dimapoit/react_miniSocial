@@ -1,0 +1,17 @@
+.selectedPage {
+    font-weight: bold;
+    color: red;
+}
+
+.page {
+    display: inline-flex;
+    font-size: 1.5em;
+    border: solid 2px #c2bead;
+    border-radius: 20%;
+    padding: 2px;
+    margin: 5px;
+    cursor: pointer;
+}
+button {
+    cursor: pointer;
+}
