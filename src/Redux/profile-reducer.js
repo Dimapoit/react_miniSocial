@@ -54,31 +54,51 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile: pr
 
 export const setUserStatus = (status) => ({type: SET_STATUS, status: status})
 
-//Thunks
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
-        usersAPI.getProfile(userId)
-            .then(response => {
-                //this.props.toggleIsFetching(false)
-                dispatch(setUserProfile(response.data))
-            })
-    }
+//ThunkCreators
+
+// export const getUserProfile = (userId) => {
+//     return (dispatch) => {
+//         usersAPI.getProfile(userId)
+//             .then(response => {
+//                 dispatch(setUserProfile(response.data))
+//             })
+//     }
+// }
+
+export const getUserProfile = (userId) => async dispatch => {
+
+    let response = await usersAPI.getProfile(userId)
+    dispatch(setUserProfile(response.data))
 }
 
-export const getUserStatus = (userId) => {
-    return (dispatch) => {
-        profileAPI.getStatus(userId)
-            .then(response => {
-                dispatch(setUserStatus(response.data))
-            })
-    }
+// export const getUserStatus = (userId) => {
+//     return (dispatch) => {
+//         profileAPI.getStatus(userId)
+//             .then(response => {
+//                 dispatch(setUserStatus(response.data))
+//             })
+//     }
+// }
+
+export const getUserStatus = (userId) => async (dispatch) => {
+
+    let response = await profileAPI.getStatus(userId)
+    dispatch(setUserStatus(response.data))
 }
 
-export const updateStatus = (status) => (dispatch) => {
-    profileAPI.updateStatus(status)
-        .then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setUserStatus(status))
-            }
-        })
+// export const updateStatus = (status) => (dispatch) => {
+//     profileAPI.updateStatus(status)
+//         .then(response => {
+//             if (response.data.resultCode === 0) {
+//                 dispatch(setUserStatus(status))
+//             }
+//         })
+// }
+
+export const updateStatus = (status) => async (dispatch) => {
+
+    let response = await profileAPI.updateStatus(status)
+    if (response.data.resultCode === 0) {
+        dispatch(setUserStatus(status))
+    }
 }

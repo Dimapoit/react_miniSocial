@@ -25,16 +25,16 @@ const AppReducer = (state = initialState, action) => {
 
 export default AppReducer;
 
+// ActionCreator
 export const initializedSuccess = () => ({type: INITIALIZED_SUCCESS})
 
-export const initialize = () => {
-    return (dispatch) => {
+//ThunkCreators
+export const initialize = () => (dispatch) => {
         let promise = dispatch(getAuthUserData())
 
         promise.then( () => {
             dispatch(initializedSuccess())
         })
     }
-}
 
 
